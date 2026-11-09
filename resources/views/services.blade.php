@@ -9,11 +9,11 @@
 
         <!-- Навигация по неделям -->
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-            <a href="{{ route('services.form', ['week' => $weekOffset - 1]) }}" style="background: #0a3622; color: white; padding: 8px 14px; text-decoration: none; border-radius: 5px;">← Попередній тиждень</a>
+            <a href="{{ route('services.index', ['week' => $weekOffset - 1]) }}" style="background: #0a3622; color: white; padding: 8px 14px; text-decoration: none; border-radius: 5px;">← Попередній тиждень</a>
             <span style="font-weight: bold; font-size: 16px; color: #333;">
                 Тиждень: {{ $weekDays[0]['formatted'] }} — {{ $weekDays[4]['formatted'] }}
             </span>
-            <a href="{{ route('services.form', ['week' => $weekOffset + 1]) }}" style="background: #0a3622; color: white; padding: 8px 14px; text-decoration: none; border-radius: 5px;">Наступний тиждень →</a>
+            <a href="{{ route('services.index', ['week' => $weekOffset + 1]) }}" style="background: #0a3622; color: white; padding: 8px 14px; text-decoration: none; border-radius: 5px;">Наступний тиждень →</a>
         </div>
 
         <!-- Таблица-сетка -->
@@ -48,12 +48,12 @@
                             <td style="border: 1px solid #ccc; padding: 10px;">
                                 @if($booked)
                                     <!-- Кликабельная кнопка для просмотра деталей занятого слота -->
-                                    <a href="{{ route('services.form', ['week' => $weekOffset, 'appointment' => $booked->id]) }}" style="display: inline-block; background: #ffebee; color: #c62828; padding: 6px 10px; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 12px; border: 1px solid #ffcdd2;">
+                                    <a href="{{ route('services.index', ['week' => $weekOffset, 'appointment' => $booked->id]) }}" style="display: inline-block; background: #ffebee; color: #c62828; padding: 6px 10px; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 12px; border: 1px solid #ffcdd2;">
                                         🔴 Зайнято<br>({{ $booked->client_name }})
                                     </a>
                                 @else
                                     <!-- Кликабельная ссылка для выбора свободного времени -->
-                                    <a href="{{ route('services.form', ['week' => $weekOffset, 'time' => $slotTime]) }}" style="display: inline-block; background: #e8f5e9; color: #2e7d32; padding: 6px 10px; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 12px; border: 1px solid #c8e6c9;">
+                                    <a href="{{ route('services.index', ['week' => $weekOffset, 'time' => $slotTime]) }}" style="display: inline-block; background: #e8f5e9; color: #2e7d32; padding: 6px 10px; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 12px; border: 1px solid #c8e6c9;">
                                         🟢 Записатись
                                     </a>
                                 @endif
@@ -85,7 +85,7 @@
                 </ul>
 
                 <div style="margin-top: 20px;">
-                    <a href="{{ route('services.form', ['week' => $weekOffset]) }}" style="background: #e65100; color: white; padding: 8px 14px; text-decoration: none; border-radius: 4px; font-size: 14px; font-weight: bold;">
+                    <a href="{{ route('services.index', ['week' => $weekOffset]) }}" style="background: #e65100; color: white; padding: 8px 14px; text-decoration: none; border-radius: 4px; font-size: 14px; font-weight: bold;">
                         Закрити деталі
                     </a>
                 </div>

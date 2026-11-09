@@ -1,8 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\SiteController;
 
+use App\Http\Controllers\CountryController;
+
+Route::get('/', function () {
+    return redirect()->route('country.index');
+});
+
+Route::resource('country', CountryController::class);
+
+// Главная страница
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
@@ -15,8 +25,9 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
-// Страница отображения графика/формы с поддержкой выбранного времени
-Route::get('/services', [SiteController::class, 'repairForm'])->name('services.form');
-
-// Обработка отправки формы
-Route::post('/services', [SiteController::class, 'storeRepair'])->name('services.store');
+Route::resource('services', AppointmentController::class)->names([
+    'index' => 'services.index',
+    'store' => 'services.store',
+])->parameters([
+    'services' => 'appointment'
+]);

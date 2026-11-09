@@ -14,7 +14,7 @@
     </div>
     <div>
         <a href="{{ route('home') }}" style="color: white; margin-right: 15px; text-decoration: none; font-weight: bold;">Головна</a>
-        <a href="{{ route('services.form') }}" style="color: white; margin-right: 15px; text-decoration: none;">Послуги</a>
+        <a href="{{ route('services.index') }}" style="color: white; margin-right: 15px; text-decoration: none;">Послуги</a>
         <a href="{{ route('about') }}" style="color: white; margin-right: 15px; text-decoration: none;">Про застосунок</a>
         <a href="{{ route('contact') }}" style="color: white; text-decoration: none;">Контакти</a>
     </div>
